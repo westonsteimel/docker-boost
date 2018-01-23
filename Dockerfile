@@ -8,13 +8,14 @@ ENV BOOST_VERSION ${BOOST_VERSION}
 RUN mkdir -p ${BOOST_DIR} \
     && apk add --no-cache --virtual .build-dependencies \
     build-base \
+    linux-headers \
     curl \
     && curl -sL --retry 3 "https://dl.bintray.com/boostorg/release/${BOOST_VERSION}/source/${BOOST_DIR}.tar.gz" | \
     tar -xz --strip 1 -C ${BOOST_DIR}/ \
     && cd ${BOOST_DIR} \
     && ./bootstrap.sh \
     && ./b2 --without-python --prefix=/usr -j 4 link=shared runtime-link=shared install \
-    && cd .. && rm -rf ${boost_dir} \
+    && cd .. && rm -rf ${BOOST_DIR} \
     && apk del .build-dependencies
 
 CMD ["sh"]
