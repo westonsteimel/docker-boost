@@ -20,6 +20,7 @@ alpine_versions=(3.6 3.7)
 for version in "${versions[@]}"; do
     echo "Generating Dockerfiles for Boost version ${version}."
     template=alpine
+    boost_url_dir=boost_${version//./_}
     echo "Generating templates for ${template}"
 
     for alpine_version in ${alpine_versions[@]}; do
@@ -28,6 +29,7 @@ for version in "${versions[@]}"; do
 	sed -r \
 	    -e 's!%%TAG%%!'"$alpine_version"'!g' \
 	    -e 's!%%BOOST_VERSION%%!'"$version"'!g' \
+	    -e 's!%%BOOST_URL_DIR%%!'"$boost_url_dir"'!g' \
             "Dockerfile-${template}.template" > "$version/$template/$alpine_version/Dockerfile"
 	echo "Generated ${version}/${template}/${alpine_version}/Dockerfile"
     done
