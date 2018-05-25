@@ -2,7 +2,7 @@ FROM alpine:%%TAG%%
 LABEL Description="Boost C++ libraries on Alpine Linux"
 
 ARG BOOST_VERSION=%%BOOST_VERSION%%
-ARG BOOST_DIR=%%BOOST_DIR%%
+ARG BOOST_DIR=boost
 ENV BOOST_VERSION ${BOOST_VERSION}
 
 RUN mkdir -p ${BOOST_DIR} \

@@ -2,7 +2,7 @@ FROM alpine:3.6
 LABEL Description="Boost C++ libraries on Alpine Linux"
 
 ARG BOOST_VERSION=1.66.0
-ARG BOOST_DIR=boost_1_66_0
+ARG BOOST_DIR=boost
 ENV BOOST_VERSION ${BOOST_VERSION}
 
 RUN mkdir -p ${BOOST_DIR} \

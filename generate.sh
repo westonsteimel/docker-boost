@@ -15,11 +15,10 @@ sed_escape_rhs() {
 	echo "$@" | sed -e 's/[\/&]/\\&/g' | sed -e ':a;N;$!ba;s/\n/\\n/g'
 }
 
-alpine_versions=(3.4 3.5 3.6 3.7)
+alpine_versions=(3.6 3.7)
 
 for version in "${versions[@]}"; do
     echo "Generating Dockerfiles for Boost version ${version}."
-    boost_dir=boost_${version//./_}
     template=alpine
     echo "Generating templates for ${template}"
 
@@ -29,7 +28,6 @@ for version in "${versions[@]}"; do
 	sed -r \
 	    -e 's!%%TAG%%!'"$alpine_version"'!g' \
 	    -e 's!%%BOOST_VERSION%%!'"$version"'!g' \
-	    -e 's!%%BOOST_DIR%%!'"$boost_dir"'!g' \
             "Dockerfile-${template}.template" > "$version/$template/$alpine_version/Dockerfile"
 	echo "Generated ${version}/${template}/${alpine_version}/Dockerfile"
     done

@@ -4,3 +4,7 @@ Dockerized environment with shared [Boost C++ Library](http://www.boost.org/) ba
 ## Build Info
 
 Excludes Boost.Python.
+
+## Pull info
+
+`docker pull quay.io/westonsteimel/boost`
