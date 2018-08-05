@@ -15,7 +15,7 @@ sed_escape_rhs() {
 	echo "$@" | sed -e 's/[\/&]/\\&/g' | sed -e ':a;N;$!ba;s/\n/\\n/g'
 }
 
-alpine_versions=(3.6 3.7)
+alpine_versions=(3.6 3.7 3.8)
 declare -A boost_checksums
 boost_checksums=(["1.67.0"]="8aa4e330c870ef50a896634c931adf468b21f8a69b77007e45c444151229f665" ["1.66.0"]="bd0df411efd9a585e5a2212275f8762079fed8842264954675a4fddc46cfcf60")
 
