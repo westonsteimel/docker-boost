@@ -15,9 +15,9 @@ sed_escape_rhs() {
 	echo "$@" | sed -e 's/[\/&]/\\&/g' | sed -e ':a;N;$!ba;s/\n/\\n/g'
 }
 
-alpine_versions=(3.6 3.7 3.8)
+alpine_versions=(3.6 3.7 3.8 "edge")
 declare -A boost_checksums
-boost_checksums=(["1.67.0"]="8aa4e330c870ef50a896634c931adf468b21f8a69b77007e45c444151229f665" ["1.66.0"]="bd0df411efd9a585e5a2212275f8762079fed8842264954675a4fddc46cfcf60")
+boost_checksums=(["1.68.0"]="da3411ea45622579d419bfda66f45cd0f8c32a181d84adfa936f5688388995cf" ["1.67.0"]="8aa4e330c870ef50a896634c931adf468b21f8a69b77007e45c444151229f665" ["1.66.0"]="bd0df411efd9a585e5a2212275f8762079fed8842264954675a4fddc46cfcf60")
 
 for version in "${versions[@]}"; do
     echo "Generating Dockerfiles for Boost version ${version}."
