@@ -29,7 +29,7 @@ for version in "${versions[@]}"; do
 	    cd "${version}/${template}/${alpine_version}"
         build_tag="${imagebase}:${version}-${template}${alpine_version}"
         echo "Building ${build_tag}..."
-        time docker build -t "${build_tag}" .
+        time docker build --build-arg "CONCURRENT_PROCESSES=4" -t "${build_tag}" .
 
         for repo in ${repos[@]}; do 
             repobase="${imagebase}"
