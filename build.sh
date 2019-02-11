@@ -15,8 +15,8 @@ sed_escape_rhs() {
 	echo "$@" | sed -e 's/[\/&]/\\&/g' | sed -e ':a;N;$!ba;s/\n/\\n/g'
 }
 
-alpine_versions=(3.7 3.8 "edge")
-latest_alpine=3.8
+alpine_versions=(3.7 3.8 3.9 "edge")
+latest_alpine=3.9
 latest_boost=1.69.0
 imagebase="westonsteimel/boost"
 repos=("" "quay.io")
