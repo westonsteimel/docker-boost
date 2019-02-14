@@ -9,11 +9,7 @@ image: ## Build a Dockerfile (ex. DIR=telnet).
 	docker build --rm --force-rm -t $(REGISTRY)/$(subst /,:,$(DIR)) ./$(DIR)
 
 .PHONY: test
-test: dockerfiles shellcheck ## Runs the tests on the repository.
-
-.PHONY: dockerfiles
-dockerfiles: ## Tests the changes to the Dockerfiles build.
-	@$(CURDIR)/test.sh
+test: shellcheck ## Runs the tests on the repository.
 
 # if this session isn't interactive, then we don't want to allocate a
 # TTY, which would fail, but if it is interactive, we do want to attach
