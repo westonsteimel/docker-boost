@@ -15,7 +15,7 @@ sed_escape_rhs() {
 	echo "$@" | sed -e 's/[\/&]/\\&/g' | sed -e ':a;N;$!ba;s/\n/\\n/g'
 }
 
-alpine_versions=(3.9 "edge")
+alpine_versions=(3.10 "edge")
 latest_alpine=3.10
 latest_boost=1.70.0
 imagebase="westonsteimel/boost"
