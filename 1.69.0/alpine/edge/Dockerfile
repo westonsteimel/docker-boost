@@ -24,3 +24,10 @@ RUN mkdir -p ${BOOST_DIR} \
     && rm -rf /var/cache/*
 
 CMD ["sh"]
+
+LABEL org.opencontainers.image.title="boost" \
+    org.opencontainers.image.description="Boost C++ libraries on Alpine Linux in Docker" \ 
+    org.opencontainers.image.url="https://github.com/westonsteimel/docker-boost" \ 
+    org.opencontainers.image.source="https://github.com/westonsteimel/docker-boost" \
+    org.opencontainers.image.version="${BOOST_VERSION}"
+
