@@ -15,11 +15,11 @@ sed_escape_rhs() {
 	echo "$@" | sed -e 's/[\/&]/\\&/g' | sed -e ':a;N;$!ba;s/\n/\\n/g'
 }
 
-alpine_versions=(3.8 3.9 "edge")
-latest_alpine=3.9
-latest_boost=1.69.0
+alpine_versions=(3.9 "edge")
+latest_alpine=3.10
+latest_boost=1.70.0
 imagebase="westonsteimel/boost"
-repos=("" "quay.io")
+repos=("")
 
 for version in "${versions[@]}"; do
     echo "Building Dockerfiles for Boost version ${version}."
