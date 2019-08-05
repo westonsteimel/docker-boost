@@ -7,4 +7,4 @@ Excludes Boost.Python.
 
 ## Pull info
 
-`docker pull quay.io/westonsteimel/boost`
+`docker pull westonsteimel/boost`
