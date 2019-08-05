@@ -1,8 +1,8 @@
-FROM alpine:3.8
+FROM alpine:edge
 LABEL Description="Boost C++ libraries on Alpine Linux"
 
-ARG BOOST_VERSION=1.69.0
-ARG BOOST_CHECKSUM=9a2c2819310839ea373f42d69e733c339b4e9a19deab6bfec448281554aa4dbb
+ARG BOOST_VERSION=1.70.0
+ARG BOOST_CHECKSUM=882b48708d211a5f48e60b0124cf5863c1534cd544ecd0664bb534a4b5d506e9
 ARG BOOST_DIR=boost
 ARG CONCURRENT_PROCESSES=1
 ENV BOOST_VERSION ${BOOST_VERSION}
@@ -14,7 +14,7 @@ RUN mkdir -p ${BOOST_DIR} \
     curl \
     tar \
     && cd ${BOOST_DIR} \
-    && curl -L --retry 3 "https://dl.bintray.com/boostorg/release/${BOOST_VERSION}/source/boost_1_69_0.tar.gz" -o boost.tar.gz \
+    && curl -L --retry 3 "https://dl.bintray.com/boostorg/release/${BOOST_VERSION}/source/boost_1_70_0.tar.gz" -o boost.tar.gz \
     && echo "${BOOST_CHECKSUM}  boost.tar.gz" | sha256sum -c \
     && tar -xzf boost.tar.gz --strip 1 \
     && ./bootstrap.sh \
